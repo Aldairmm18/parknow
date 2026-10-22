@@ -6,7 +6,7 @@ import { useTheme } from '@/theme/ThemeProvider';
 import { Text } from '@/components/ui/Text';
 import { authService } from '@/services/authService';
 
-type Provider = 'google' | 'facebook' | 'apple';
+type Provider = 'google' | 'apple';
 
 interface Props {
   onStart?: () => void;
@@ -18,7 +18,7 @@ interface Props {
 }
 
 /**
- * Inicio de sesión con Google, Facebook y Apple.
+ * Inicio de sesión con Google y Apple.
  *
  * El botón de Apple sólo aparece en iOS 13+. Es una exigencia de la App Store
  * (guía 4.8): si ofreces inicio de sesión con terceros, debes ofrecer también
@@ -41,7 +41,6 @@ export function SocialAuthButtons({ onStart, onSuccess, onError, disabled, divid
     onStart?.();
     try {
       if (provider === 'google') await authService.signInWithGoogle();
-      else if (provider === 'facebook') await authService.signInWithFacebook();
       else await authService.signInWithApple();
       onSuccess();
     } catch (e: any) {
@@ -71,14 +70,6 @@ export function SocialAuthButtons({ onStart, onSuccess, onError, disabled, divid
           disabled={disabled || (pending != null && pending !== 'google')}
           onPress={() => run('google')}
           icon={<GoogleMark />}
-        />
-
-        <ProviderButton
-          label="Continuar con Facebook"
-          loading={pending === 'facebook'}
-          disabled={disabled || (pending != null && pending !== 'facebook')}
-          onPress={() => run('facebook')}
-          icon={<FacebookMark />}
         />
 
         {appleAvailable && Platform.OS === 'ios' ? (
@@ -135,21 +126,6 @@ function GoogleMark() {
       <Path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
       <Path fill="#4CAF50" d="M24 44c5.2 0 9.8-2 13.3-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.6 39.6 16.2 44 24 44z" />
       <Path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.4l6.2 5.2C41 35.5 44 30.2 44 24c0-1.3-.1-2.4-.4-3.5z" />
-    </Svg>
-  );
-}
-
-function FacebookMark() {
-  return (
-    <Svg width={19} height={19} viewBox="0 0 24 24">
-      <Path
-        fill="#1877F2"
-        d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c-3.01 0-5.32 1.84-5.32 5.24v2.97h-3.3V24h3.3v-8.44h3.05v8.44C19.61 23.09 24 18.1 24 12.07z"
-      />
-      <Path
-        fill="#1877F2"
-        d="M16.67 15.56l.53-3.49h-3.33V9.81c0-.95.47-1.88 1.96-1.88h1.52V4.96s-1.38-.24-2.7-.24c-2.76 0-4.56 1.67-4.56 4.7v2.65H7.08v3.49h3.01V24a12.1 12.1 0 003.75 0v-8.44h2.83z"
-      />
     </Svg>
   );
 }

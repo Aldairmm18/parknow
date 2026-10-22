@@ -155,7 +155,6 @@ export const authService = {
   },
 
   signInWithGoogle: () => authService.signInWithProvider('google'),
-  signInWithFacebook: () => authService.signInWithProvider('facebook'),
 
   // ─── Apple (nativo) ─────────────────────────────────────────────────────────
 

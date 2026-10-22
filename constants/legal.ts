@@ -62,7 +62,7 @@ export const PRIVACY_POLICY: LegalDocument = {
       heading: '2. Qué datos recogemos',
       paragraphs: [
         'Sólo recogemos lo que la app necesita para funcionar. En concreto:',
-        '• Datos de cuenta: nombre, correo electrónico y número de celular. Si entras con Google, Facebook o Apple, recibimos de ese proveedor tu nombre, tu correo y tu foto de perfil, si la tienes.',
+        '• Datos de cuenta: nombre, correo electrónico y número de celular. Si entras con Google o Apple, recibimos de ese proveedor tu nombre, tu correo y tu foto de perfil, si la tienes.',
         '• Datos de vehículo: la placa y el tipo de vehículo que indicas al reservar.',
         '• Datos de reserva y pago: parqueadero, fecha, horario, espacio asignado, importe y estado del pago. No almacenamos números de tarjeta: los procesa nuestra pasarela de pagos.',
         '• Ubicación aproximada y precisa: sólo mientras la app está abierta y sólo si nos das permiso, para mostrarte los parqueaderos cercanos y guiarte por la ruta. No rastreamos tu ubicación en segundo plano ni cuando la app está cerrada.',

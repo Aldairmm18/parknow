@@ -24,7 +24,7 @@ Para la **prueba interna o cerrada** no hacen falta. Para **producción**, sí:
    npx eas-cli env:create --environment production --name GOOGLE_MAPS_API_KEY --value "<clave>" --visibility sensitive
    ```
 3. **Páginas legales:** sube PARK a un repositorio de GitHub llamado `parknow` y activa Pages desde `docs/` → https://aldairmm18.github.io/parknow/privacy-policy.html y https://aldairmm18.github.io/parknow/delete-account.html. Si cambias `constants/legal.ts`, ejecuta `npm run legal`.
-4. **Inicio de sesión con Google, Facebook y Apple:** confírmalos en Supabase → Authentication → Providers. Un botón que falla es motivo de rechazo. Si no vas a configurar Facebook, quítalo de `components/auth/SocialAuthButtons.tsx` y de la Política de Privacidad.
+4. **Inicio de sesión con Google y Apple:** confírmalos en Supabase → Authentication → Providers. Un botón que falla es motivo de rechazo. Facebook se quitó el 2026-10-22 porque no estaba configurado; para volver a ofrecerlo, actívalo en Supabase, añade el botón en `components/auth/SocialAuthButtons.tsx` y nómbralo en `constants/legal.ts`.
 
 ## 2. Build y envío
 
